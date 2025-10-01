@@ -1,40 +1,43 @@
 class Stack:
     def __init__(self):
-        self.items = []
-
-    def push(self, item):
-        self.items.append(item)
-
+        self.ans = []
+        
+    def push(self, x):
+        self.ans.append(x)
+        
     def pop(self):
-        if not self.is_empty():
-            return self.items.pop()
+        if self.is_empty():
+            return "Stack is empty!" 
+        return self.ans.pop()
 
     def peek(self):
-        if not self.is_empty():
-            return self.items[-1]
-        return None
-
+        if self.is_empty():
+            return None
+        return self.ans[-1]
+    
     def is_empty(self):
-        return len(self.items) == 0
+        return len(self.ans) == 0
 
     def size(self):
-        return len(self.items)
+        return len(self.ans)
 
-    #test
 
-if __name__=="__main__":
-    stack = Stack()
+s = Stack()
 
-    print("Stack ว่างหรือไม่:", stack.size())
-    stack.push(10)
-    stack.push(20)
-    stack.push(30)
+print(f"Is empty? {s.is_empty()}")
 
-    print("ขนาดของ Stack:", stack.size())
-    print("ข้อมูลบนสุด:", stack.peek())
+for i in range(1, 6):
+    s.push(i)
 
-    print("นำข้อมูลออก:", stack.pop())
-    print("นำข้อมูลออก:", stack.pop())
+print("Size after push:", s.size())
+print("Top element:", s.peek())
 
-    print("ขนาดของ Stack หลังจาก pop:", stack.size())
-    print("Stack ว่างหรือไม่:", stack.is_empty())
+print("Pop:", s.pop())
+print("Pop:", s.pop())
+print("Pop:", s.pop())
+print("Pop:", s.pop())
+print("Pop:", s.pop())
+
+print("Is empty?", s.is_empty())
+
+print("Pop from empty:", s.pop())
